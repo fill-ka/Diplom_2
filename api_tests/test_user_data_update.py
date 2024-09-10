@@ -3,11 +3,9 @@ import pytest
 from varaibles import *
 
 
-
-
-def test_update_user_data_authorized():
-    url = f"{BASE_URL}/auth/user"
-    headers = {"Authorization": f"Bearer {AUTH_TOKEN_ACCESS}"}
+def test_update_user_data_authorized(auth_token):
+    url = f"{BASE_URL}/{auth_user_end}"
+    headers = {"Authorization": f"Bearer {auth_token['accessToken']}"}
     user_data = {
         "name": "Updated Name"
     }
@@ -17,7 +15,7 @@ def test_update_user_data_authorized():
 
 
 def test_update_user_data_unauthorized():
-    url = f"{BASE_URL}/auth/user"
+    url = f"{BASE_URL}/{auth_user_end}"
     user_data = {
         "name": "Updated Name"
     }

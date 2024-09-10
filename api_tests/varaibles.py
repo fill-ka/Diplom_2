@@ -1,3 +1,5 @@
 BASE_URL = "https://stellarburgers.nomoreparties.site/api"
-AUTH_TOKEN_ACCESS = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MjE2YTdkOWVkMjgwMDAxYjNlYWFlNSIsImlhdCI6MTcyNTgwMzc3OSwiZXhwIjoxNzI1ODA0OTc5fQ.pHalDJ4E5UK5AXvso53BLZ2Bf9xyo1BwJTz39zBd-bA"
-AUTH_TOKEN_REFRESH = "970c6e2014a5dd0d9bac16981b2de145cf961edcdbc4599187cc18459ab066dbde520a4476c54b16"
+orders_end = "orders"
+auth_reg_end = "auth/register"
+auth_user_end = "auth/user"
+auth_login_end = "auth/login"
