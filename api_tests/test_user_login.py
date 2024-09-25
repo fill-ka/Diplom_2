@@ -1,5 +1,4 @@
 import requests
-import pytest
 from varaibles import *
 
 
@@ -8,7 +7,7 @@ def test_login_existing_user(auth_token):
 
 
 def test_login_invalid_credentials():
-    url = f"{BASE_URL}/{auth_login_end}"
+    url = f"{BASE_URL}/{AUTH_LOGIN_END}"
     user_data = {
         "email": "invalid_user@example.com",
         "password": "WrongPassword"

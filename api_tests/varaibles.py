@@ -1,5 +1,0 @@
-BASE_URL = "https://stellarburgers.nomoreparties.site/api"
-orders_end = "orders"
-auth_reg_end = "auth/register"
-auth_user_end = "auth/user"
-auth_login_end = "auth/login"

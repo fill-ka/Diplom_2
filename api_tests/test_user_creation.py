@@ -1,5 +1,4 @@
 import requests
-import pytest
 import random
 import string
 from varaibles import *
@@ -10,38 +9,26 @@ def generate_random_email():
 
 
 def test_create_unique_user():
-    url = f"{BASE_URL}/{auth_reg_end}"
-    user_data = {
-        "email": generate_random_email(),
-        "password": "Password123",
-        "name": "Unique User"
-    }
-    response = requests.post(url, json=user_data)
+    url = f"{BASE_URL}/{AUTH_REG_END}"
+
+    response = requests.post(url, json=USER_UNIQUE_DATA)
     assert response.status_code == 200
     assert response.json().get("success") is True
 
 
 def test_create_existing_user():
-    url = f"{BASE_URL}/{auth_reg_end}"
-    user_data = {
-        "email": "existing_user@example.com",
-        "password": "Password123",
-        "name": "Existing User"
-    }
+    url = f"{BASE_URL}/{AUTH_REG_END}"
 
-    requests.post(url, json=user_data)
+    requests.post(url, json=EXISTING_USER_DATA)
 
-    response = requests.post(url, json=user_data)
+    response = requests.post(url, json=EXISTING_USER_DATA)
     assert response.status_code == 403
-    assert response.json().get("message") == "User already exists"
+    assert response.json().get("message") == USER_EXIST_ERROR
 
 
 def test_create_user_missing_field():
-    url = f"{BASE_URL}/{auth_reg_end}"
-    user_data = {
-        "email": generate_random_email(),
-        "password": "Password123"
-    }
-    response = requests.post(url, json=user_data)
+    url = f"{BASE_URL}/{AUTH_REG_END}"
+
+    response = requests.post(url, json=USER_MISSING_FIELD_DATA)
     assert response.status_code == 403
-    assert response.json().get("message") == "Email, password and name are required fields"
+    assert response.json().get("message") == MISSING_FIELD_ERROR

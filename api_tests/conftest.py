@@ -4,7 +4,7 @@ from varaibles import *
 
 @pytest.fixture(scope="module")
 def auth_token():
-    url = f"{BASE_URL}/{auth_login_end}"
+    url = f"{BASE_URL}/{AUTH_LOGIN_END}"
     user_data = {
         "email": "anna_komova_7_251@gmail.com",
         "password": "Q1w2e3r4t5"
